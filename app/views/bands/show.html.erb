@@ -1,0 +1,22 @@
+<h1>These are the great albums of <%= @band.name %></h1>
+
+<table>
+  <tr>
+    <td>
+      Title
+    </td>
+    <td>
+      Edit
+    </td>
+  </tr>
+  <% @band.albums.each do |album| %>
+  <tr>
+    <td><%= album.title %></td>
+    <td>
+        <%= button_to "Edit", edit_album_url(album), method: :edit %>
+        <%= button_to "Delete", album_url(album), method: :delete %>
+    </td>
+  </tr>
+  <% end %>
+
+</table>

@@ -1,0 +1,10 @@
+<h1>Track name: <%= @track.title %></h1>
+
+<% @track.attributes.each do |k,v| %>
+<% next if ["id", "created_at", "updated_at"].include?(k) %>
+<strong><%= k == "album_id" ? "Album" : k.capitalize %></strong><br>
+<%= k == "album_id" ? @track.album.title : v %><br>
+<% end %>
+
+
+<%= link_to  "Go to the album's page", album_url(@track.album) %>

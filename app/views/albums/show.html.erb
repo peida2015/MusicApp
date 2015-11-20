@@ -1,0 +1,25 @@
+<h1>The tracks in  <%= @album.title %></h1>
+
+<table>
+  <tr>
+    <td>
+      Title
+    </td>
+    <td>
+      Delete
+    </td>
+  </tr>
+  <% @album.tracks.each do |track| %>
+  <tr>
+    <td>
+      <%= track.title %>
+    </td>
+    <td>
+      <%= button_to "Edit", edit_track_url(track), method: :edit %>
+      <%= button_to "Delete", track_url(track), method: :delete %>
+    </td>
+  </tr>
+  <% end %>
+  <%= link_to "Go to the Band's Homepage", band_url(@album.band) %>
+
+</table>
