@@ -1,4 +1,8 @@
 class AlbumsController < ApplicationController
+  before_action only: [:show] do
+    redirect_to new_session_url unless current_user
+  end
+
   def new
 
   end

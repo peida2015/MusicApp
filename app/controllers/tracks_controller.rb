@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
-  before_action :show do
-    redirect_to new_session_url unless @current_user
+  before_action only: [:show] do
+    redirect_to new_session_url unless current_user
   end
 
   def create
